@@ -1,12 +1,29 @@
 package com.xworkz.fooddelivery.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.xworkz.fooddelivery.constant.FoodType;
 
-public class FoodItemEntity {
+import lombok.Data;
 
+@Data
+@Entity
+@Table(name="FOOD")
+public class FoodItemEntity {
+	
+	@Id
+	@Column(name="ID")
+	private int id;
+	@Column(name="NAME")
 	private String name;
+	@Column(name="PRICE")
 	private float price;
+	@Column(name="FOOD_TYPE")
 	private FoodType foodType;
+	@Column(name="QUANTITY")
 	private int qunatity;
 
 	public FoodItemEntity() {
@@ -59,38 +76,6 @@ public class FoodItemEntity {
 		if (qunatity != other.qunatity)
 			return false;
 		return true;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public float getPrice() {
-		return price;
-	}
-
-	public void setPrice(float price) {
-		this.price = price;
-	}
-
-	public FoodType getFoodType() {
-		return foodType;
-	}
-
-	public void setFoodType(FoodType foodType) {
-		this.foodType = foodType;
-	}
-
-	public int getQunatity() {
-		return qunatity;
-	}
-
-	public void setQunatity(int qunatity) {
-		this.qunatity = qunatity;
 	}
 
 }

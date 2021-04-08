@@ -1,10 +1,29 @@
 package com.xworkz.fooddelivery.entity;
 
-public class CustomerEntity {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@Entity
+@Table(name="CUSTOMER")
+public class CustomerEntity {
+	
+	@Id
+	@Column(name="ID")
+	private int id;
+	@Column(name="NAME")
 	private String name;
+	@Column(name="LOCATION")
 	private String location;
+	@Column(name="RATING")
 	private int rating;
+	@Column(name="PHONE_NO")
 	private long phoneNo;
 
 	public CustomerEntity(String name, String location, int rating, long phoneNo) {
@@ -56,38 +75,6 @@ public class CustomerEntity {
 		if (rating != other.rating)
 			return false;
 		return true;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
-	public int getRating() {
-		return rating;
-	}
-
-	public void setRating(int rating) {
-		this.rating = rating;
-	}
-
-	public long getPhoneNo() {
-		return phoneNo;
-	}
-
-	public void setPhoneNo(long phoneNo) {
-		this.phoneNo = phoneNo;
 	}
 
 }

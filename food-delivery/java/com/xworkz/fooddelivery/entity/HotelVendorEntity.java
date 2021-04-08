@@ -1,12 +1,31 @@
 package com.xworkz.fooddelivery.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.xworkz.fooddelivery.constant.HotelType;
 
-public class HotelVendorEntity {
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@Entity
+@Table(name="hotel_vendor")
+public class HotelVendorEntity {
+	
+	@Id
+	@Column(name="ID")
+	private int id;
+	@Column(name="NAME")
 	private String name;
+	@Column(name="LOCATION")
 	private String location;
+	@Column(name="RATING")
 	private int rating;
+	@Column(name="TYPE")
 	private HotelType type;
 
 	public HotelVendorEntity(String name, String location, int rating, HotelType type) {
@@ -59,37 +78,4 @@ public class HotelVendorEntity {
 			return false;
 		return true;
 	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
-	public int getRating() {
-		return rating;
-	}
-
-	public void setRating(int rating) {
-		this.rating = rating;
-	}
-
-	public HotelType getType() {
-		return type;
-	}
-
-	public void setType(HotelType type) {
-		this.type = type;
-	}
-
 }
